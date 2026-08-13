@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { watchFile } from "node:fs";
 import path from "node:path";
+// import html from "./src/template.html";
 
 export default {
   entry: "./src/index.js",
@@ -15,4 +16,12 @@ export default {
   },
   mode: "development",
   plugins: [new HtmlWebpackPlugin({ template: "src/template.html" })],
+  module: {
+    rules: [
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+    ],
+  },
 };
