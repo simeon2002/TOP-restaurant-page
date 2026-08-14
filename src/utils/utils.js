@@ -1,11 +1,22 @@
 import homeScreen from "../pages/home.js";
 import menuScreen from "../pages/menu.js";
+import aboutScreen from "../pages/about.js";
 
 let contentContainer, navBtns, state;
 
-const createElement = function ({ type, textContent, classList, eventType, eventHandler }) {
+const ElementToString = function (el) {
+  const tmp = document.createElement("div");
+  tmp.append(el);
+  return tmp.innerHTML;
+};
+
+const createElement = function ({ type, textContent, innerHtml, classList, eventType, eventHandler }) {
   const htmlEl = document.createElement(type);
   htmlEl.textContent = textContent ?? "";
+
+  if (innerHtml) {
+    htmlEl.innerHTML = innerHtml;
+  }
   classList && htmlEl.classList.add(...classList);
   eventType && htmlEl.addEventListener(eventType, eventHandler);
 
@@ -31,10 +42,10 @@ const switchScreen = function (state) {
 
       break;
     case "faq":
-      // faqScreen();
+      // faqScreen(contentContainer);
       break;
     case "about":
-      // aboutScreen();
+      aboutScreen(contentContainer);
       break;
 
     default:
@@ -79,4 +90,4 @@ const createHandleNavBtnClicked = function (navButtons, contentCont) {
   return handleNavBtnClicked;
 };
 
-export { createElement, switchScreen, createHandleNavBtnClicked };
+export { ElementToString, createElement, switchScreen, createHandleNavBtnClicked };

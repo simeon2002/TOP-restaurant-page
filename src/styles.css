@@ -66,7 +66,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   font-size: var(--fs-500);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.609), rgba(0, 0, 0, 0.369)), url(./assets/home-banner.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.959), rgba(0, 0, 0, 0.369)), url(./assets/home-banner.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -127,7 +127,7 @@ header {
 
 .cta-btn.btn:hover {
   background-color: transparent;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(25px);
   color: var(--clr-white);
   border: 2px solid var(--clr-white);
 }
@@ -182,6 +182,38 @@ header {
 
 .food-item__desc {
   font-size: var(--fs-400);
+}
+
+/* ABOUT US SECTION */
+.about {
+  padding-top: var(--space-800);
+  padding: var(--space-800) var(--space-600) var(--space-800);
+}
+
+.about .about-title.heading-primary {
+  font-size: var(--fs-1100);
+  margin-bottom: var(--space-600);
+}
+
+.about__section {
+  margin-bottom: var(--space-800);
+}
+
+.about .heading-secondary {
+  margin-bottom: var(--space-300);
+}
+
+.address {
+  font-style: normal;
+}
+
+.about-title {
+  font-size: var(--fs-500);
+}
+
+.address-container,
+.hours-container {
+  margin-bottom: var(--space-200);
 }
 
 /********************************************/
@@ -256,7 +288,7 @@ header {
 
 #content {
   align-self: start;
-  width: min(90%, 90rem);
+  width: min(80%, 90rem);
   margin: 0 auto;
 }
 

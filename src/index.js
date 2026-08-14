@@ -10,4 +10,4 @@ const handleNavBtnClicked = createHandleNavBtnClicked(navBtns, contentContainer)
 // set up nav button event listeners
 navBtns.forEach(btn => btn.addEventListener("click", handleNavBtnClicked));
 
-switchScreen("menu");
+switchScreen("about");
