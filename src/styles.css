@@ -68,7 +68,7 @@ body {
   font-size: var(--fs-500);
   background-image: linear-gradient(rgba(0, 0, 0, 0.609), rgba(0, 0, 0, 0.369)), url(./assets/home-banner.jpg);
   background-repeat: no-repeat;
-  background-position: 50% 75%;
+  background-position: center;
   background-size: cover;
   color: var(--clr-white);
   font-family:
@@ -153,7 +153,7 @@ header {
 }
 
 .menu__desc {
-  margin-bottom: var(--space-1000);
+  margin-bottom: var(--space-800);
 }
 
 .menu__section:not(:last-child) {
@@ -258,5 +258,14 @@ header {
   align-self: start;
   width: min(90%, 90rem);
   margin: 0 auto;
-  transition: all 0.3s ease-in;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
