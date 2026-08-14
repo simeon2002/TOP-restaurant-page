@@ -63,6 +63,8 @@
 /********************************************/
 body {
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
   font-size: var(--fs-500);
   background-image: linear-gradient(rgba(0, 0, 0, 0.609), rgba(0, 0, 0, 0.369)), url(./assets/home-banner.jpg);
   background-repeat: no-repeat;
@@ -96,7 +98,9 @@ header {
 /* HOME PAGE BANNER */
 
 .home-banner {
+  align-self: center;
   margin: 0 auto;
+  padding-top: var(--space-1600);
   display: flex;
   justify-content: center;
   align-items: start;
@@ -129,12 +133,16 @@ header {
 }
 
 /* MENU SECTION */
-.menu-title.heading-primary {
+.menu {
+  padding: var(--space-800) 0 var(--space-1200);
+}
+
+.menu .menu-title.heading-primary {
   font-size: var(--fs-1100);
 }
 
 .menu-card {
-  padding: var(--space-600) var(--space-800) var(--space-600);
+  padding: var(--space-1000) var(--space-800) var(--space-1000);
   background-color: var(--clr-white);
   color: var(--clr-black);
   border-radius: 4px;
@@ -148,7 +156,7 @@ header {
   margin-bottom: var(--space-1000);
 }
 
-.menu__section {
+.menu__section:not(:last-child) {
   margin-bottom: var(--space-800);
 }
 
@@ -165,6 +173,7 @@ header {
   gap: var(--space-300);
   font-weight: var(--fw-bold);
   font-size: var(--fs-600);
+  margin-bottom: var(--space-50);
 }
 
 .food-item__title {
@@ -246,8 +255,8 @@ header {
 }
 
 #content {
-  width: min(90%, 100rem);
-  padding: var(--space-1000);
+  align-self: start;
+  width: min(90%, 90rem);
   margin: 0 auto;
   transition: all 0.3s ease-in;
 }
