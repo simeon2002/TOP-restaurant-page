@@ -41,9 +41,6 @@ const switchScreen = function (state) {
       menuScreen(contentContainer);
 
       break;
-    case "faq":
-      // faqScreen(contentContainer);
-      break;
     case "about":
       aboutScreen(contentContainer);
       break;
