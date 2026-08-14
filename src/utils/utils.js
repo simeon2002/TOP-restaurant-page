@@ -1,62 +1,67 @@
 import homeScreen from "../pages/home.js";
 
-const createElement = function ({ type, textContent, classList }) {
+let contentContainer, navBtns;
+
+const createElement = function ({ type, textContent, classList, eventType, eventHandler }) {
   const htmlEl = document.createElement(type);
   htmlEl.textContent = textContent ?? "";
   htmlEl.classList.add(...classList);
+  eventType && htmlEl.addEventListener(eventType, eventHandler);
 
   return htmlEl;
 };
 
-const createHandleNavBtnClicked = function (navBtns, contentContainer) {
-  const activateClickedBtn = function (btn) {
-    const isCtaBtn = btn => btn.classList.contains("cta-btn");
-    //prettier-ignore
-    if (isCtaBtn(btn)) {
-    btn = document.querySelector('.btn[data-screen="menu"]');
-    console.log(btn);
-    }
+/**
+ * Switching screen on click event
+ * @param {Event} e click event
+ */
+const switchScreen = function (state) {
+  contentContainer.innerHTML = "";
 
-    console.log(btn);
+  switch (state) {
+    case "menu":
+      // menuScreen();
+      break;
+    case "faq":
+      // faqScreen();
+      break;
+    case "about":
+      // aboutScreen();
+      break;
 
-    navBtns.forEach(btn => btn.closest(".nav-item").classList.remove("active"));
-    btn.closest(".nav-item").classList.add("active");
-  };
+    default:
+      homeScreen(navBtns, contentContainer);
+      break;
+  }
+};
 
-  /**
-   * Switching screen on click event
-   * @param {Event} e click event
-   */
-  const switchScreen = function (state) {
-    switch (state) {
-      case "menu":
-        // menuScreen();
-        break;
-      case "faq":
-        // faqScreen();
-        break;
-      case "about":
-        // aboutScreen();
-        break;
+const activateClickedBtn = function (btn) {
+  navBtns.forEach(btn => btn.closest(".nav-item").classList.remove("active"));
+  btn.closest(".nav-item").classList.add("active");
+};
 
-      default:
-        homeScreen(contentContainer);
-        break;
-    }
-  };
+const createHandleNavBtnClicked = function (navButtons, contentCont) {
+  contentContainer = contentCont;
+  navBtns = navButtons;
 
   const handleNavBtnClicked = function (e) {
-    const btnClicked = e.target.closest(".btn");
+    const isCtaBtn = btn => btn.classList.contains("cta-btn");
+    let btn = e.target.closest(".btn");
+
+    if (isCtaBtn(btn)) {
+      btn = document.querySelector('.btn[data-screen="menu"]');
+    }
 
     // switch screen based on state
-    const state = btnClicked.dataset.screen;
+    const state = btn.dataset.screen;
+
     state && switchScreen(state);
 
     // make button active
-    activateClickedBtn(btnClicked);
+    activateClickedBtn(btn);
   };
 
   return handleNavBtnClicked;
 };
 
-export { createElement, createHandleNavBtnClicked };
+export { createElement, switchScreen, createHandleNavBtnClicked };

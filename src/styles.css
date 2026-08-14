@@ -198,4 +198,5 @@ header {
 #content {
   width: min(90%, 120rem);
   margin: 0 auto;
+  transition: all 0.3s ease-in;
 }

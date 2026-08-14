@@ -1,14 +1,14 @@
-import { createElement } from "../utils/utils.js";
+import { createElement, createHandleNavBtnClicked } from "../utils/utils.js";
 
 /**
  * Creates the home screen content dynamically. No page reload required
  * @param {HTMLElement} container element that contains all of the content
  */
-export default function (container) {
+export default function (navBtns, container) {
   console.log(container);
+  const handleNavBtnClicked = createHandleNavBtnClicked(navBtns, container);
 
   const homeBanner = createElement({ type: "div", classList: ["home-banner"] });
-  console.log(homeBanner);
 
   const bannerTitle = createElement({
     type: "h1",
@@ -26,10 +26,11 @@ export default function (container) {
     type: "button",
     classList: ["btn", "cta-btn"],
     textContent: "View Menu",
+    eventType: "click",
+    eventHandler: handleNavBtnClicked,
   });
 
   homeBanner.append(bannerTitle, bannerDescription, ctaBtn);
 
-  console.log(homeBanner);
   container.appendChild(homeBanner);
 }

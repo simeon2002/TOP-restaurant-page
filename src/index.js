@@ -9,3 +9,5 @@ const contentContainer = document.getElementById("content");
 const handleNavBtnClicked = createHandleNavBtnClicked(navBtns, contentContainer);
 
 navBtns.forEach(btn => btn.addEventListener("click", handleNavBtnClicked));
+
+switchScreen("home");
