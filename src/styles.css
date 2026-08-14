@@ -62,7 +62,7 @@
 /* SPECIFIC STYLES */
 /********************************************/
 body {
-  height: 100vh;
+  min-height: 100vh;
   font-size: var(--fs-500);
   background-image: linear-gradient(rgba(0, 0, 0, 0.609), rgba(0, 0, 0, 0.369)), url(./assets/home-banner.jpg);
   background-repeat: no-repeat;
@@ -97,20 +97,14 @@ header {
 
 .home-banner {
   margin: 0 auto;
-  padding: var(--space-1000);
   display: flex;
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  /* text-align: center; */
-  max-width: 100rem;
 }
 
-.banner__title {
-  margin-bottom: var(--space-300);
-}
-
-.banner__description {
+.banner__description,
+.menu__desc {
   font-size: var(--fs-400);
   /* font-style: italic; */
   line-height: 1.5;
@@ -132,6 +126,53 @@ header {
   backdrop-filter: blur(15px);
   color: var(--clr-white);
   border: 2px solid var(--clr-white);
+}
+
+/* MENU SECTION */
+.menu-title.heading-primary {
+  font-size: var(--fs-1100);
+}
+
+.menu-card {
+  padding: var(--space-600) var(--space-800) var(--space-600);
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border-radius: 4px;
+}
+
+.menu__title {
+  margin-bottom: var(--space-300);
+}
+
+.menu__desc {
+  margin-bottom: var(--space-1000);
+}
+
+.menu__section {
+  margin-bottom: var(--space-800);
+}
+
+.food-list {
+  list-style: none;
+}
+
+.food-item:not(:last-child) {
+  margin-bottom: var(--space-400);
+}
+
+.food-item__title-and-price {
+  display: flex;
+  gap: var(--space-300);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-600);
+}
+
+.food-item__title {
+  font-weight: var(--fw-bold);
+}
+
+.food-item__desc {
+  font-size: var(--fs-400);
 }
 
 /********************************************/
@@ -193,10 +234,20 @@ header {
   font-style: italic;
   font-weight: bold;
   letter-spacing: -1.2px;
+  margin-bottom: var(--space-300);
+}
+
+.heading-secondary {
+  font-size: var(--fs-900);
+  line-height: 1.1;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: -0.6px;
 }
 
 #content {
-  width: min(90%, 120rem);
+  width: min(90%, 100rem);
+  padding: var(--space-1000);
   margin: 0 auto;
   transition: all 0.3s ease-in;
 }
