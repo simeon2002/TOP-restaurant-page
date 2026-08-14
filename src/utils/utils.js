@@ -1,7 +1,7 @@
 import homeScreen from "../pages/home.js";
 import menuScreen from "../pages/menu.js";
 
-let contentContainer, navBtns;
+let contentContainer, navBtns, state;
 
 const createElement = function ({ type, textContent, classList, eventType, eventHandler }) {
   const htmlEl = document.createElement(type);
@@ -20,14 +20,10 @@ const switchScreen = function (state) {
   contentContainer.innerHTML = "";
   contentContainer.className = "";
   const animation = [
-    { opacity: 0, transform: "translateY(40%)" },
+    { opacity: 0, transform: "translateY(25%)" },
     { opacity: 1, transform: "translateY(0)" },
   ];
   const animationTiming = { duration: 500, iterations: 1 };
-
-  console.log(state === "menu");
-  console.log(contentContainer.classList.contains("menu"));
-  console.log(contentContainer.className);
 
   switch (state) {
     case "menu":
@@ -61,11 +57,15 @@ const createHandleNavBtnClicked = function (navButtons, contentCont) {
 
   const handleNavBtnClicked = function (e) {
     const isCtaBtn = btn => btn.classList.contains("cta-btn");
+    const alreadyClicked = btn => btn.closest(".nav-item").classList.contains("active");
     let btn = e.target.closest(".btn");
 
     if (isCtaBtn(btn)) {
       btn = document.querySelector('.btn[data-screen="menu"]');
     }
+
+    // return if already active
+    if (alreadyClicked(btn)) return;
 
     // switch screen based on state
     const state = btn.dataset.screen;
