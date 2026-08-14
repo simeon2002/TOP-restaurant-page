@@ -93,32 +93,6 @@ header {
   gap: var(--space-300);
 }
 
-/* .nav {
-  display: flex;
-  justify-content: center;
-} */
-
-.nav-item {
-  position: relative;
-}
-
-.nav-item::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  width: 60%;
-  height: 2px;
-  background-color: var(--clr-white);
-  transform: translate(-50%) scale(0);
-  transform-origin: center;
-  transition: transform 0.3s ease-in;
-}
-
-.nav-item:hover::after {
-  transform: translateX(-50%) scale(1);
-}
-
 /* HOME PAGE BANNER */
 
 .home-banner {
@@ -167,7 +141,7 @@ header {
   color: var(--clr-white);
   background: none;
   border: none;
-  padding: 0.4rem var(--space-300);
+  padding: 0.4rem var(--space-200);
   cursor: pointer;
 }
 
@@ -175,8 +149,39 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-200);
+  gap: var(--space-20);
   list-style: none;
+}
+
+/* .nav {
+  display: flex;
+  justify-content: center;
+} */
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 60%;
+  height: 2px;
+  background-color: var(--clr-white);
+  transform: translate(-50%) scale(0);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform 0.3s ease-in,
+    opacity 0.3s ease-in;
+}
+
+.nav-item:hover::after,
+.active::after {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
 }
 
 /********************************************/
