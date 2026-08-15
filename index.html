@@ -4,21 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant</title>
-    <script defer src="main.js"></script>
-  </head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  <script defer src="main.js"></script></head>
   <body>
     <header>
-      <nav>
-        <button>Home</button>
-        <button>Menu</button>
-        <button>About</button>
-        <button>FAQ</button>
+      <h1 class="logo">SERAFODO</h1>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button class="btn" data-screen="home">Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn" data-screen="menu">Menu</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn" data-screen="about">About</button>
+          </li>
+          <!-- <li class="nav-item"> -->
+          <!-- <button class="btn" data-screen="faq">FAQ</button> -->
+          <!-- </li> -->
+        </ul>
       </nav>
     </header>
-    <div id="content">
-      <img src="07a0a051b35bd16df8b5.jpg" width="500px" height="500px" alt="phone in hand with a desk in the background" />
-      <h1>Restaurant Serafodo</h1>
-      <p>Our restaurant is amazing!</p>
-    </div>
+    <div id="content"></div>
   </body>
 </html>
